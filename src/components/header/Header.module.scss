@@ -1,0 +1,78 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.header {
+  height: 5rem;
+  background: varr.$header__backg;
+  display: flex;
+  align-items: center;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 varr.$header_gap;
+    width: 100%;
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+
+      @media screen and (max-width: 400px) {
+        gap: 3.5rem;
+      }
+
+      &__logo {
+        width: 15rem;
+
+        @media screen and (max-width: 400px) {
+          width: 10rem;
+        }
+      }
+
+      &__items {
+        display: flex;
+        gap: varr.$link_gap;
+
+        @media screen and (max-width: 400px) {
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    &__profile {
+      display: flex;
+      align-items: center;
+      gap: varr.$link_gap;
+
+      &__cart {
+        position: relative;
+        span {
+          position: absolute;
+          font-size: 1.3rem;
+          top: -4px;
+          color: rgb(255, 145, 0);
+        }
+
+        &:hover,
+        &:active {
+          color: rgb(255, 145, 0);
+        }
+      }
+    }
+  }
+}
+
+.focus {
+  padding: 0.5rem;
+  border-radius: varr.$border_radius_main;
+  -webkit-border-radius: varr.$border_radius_main;
+  -moz-border-radius: varr.$border_radius_main;
+  -ms-border-radius: varr.$border_radius_main;
+  -o-border-radius: varr.$border_radius_main;
+}
+
+.focus:hover,
+.focus:active {
+  background: varr.$product__backg;
+}

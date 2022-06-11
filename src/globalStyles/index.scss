@@ -22,6 +22,10 @@ html {
   @media screen and (max-width: 700px) {
     font-size: 45%;
   }
+
+  @media screen and (max-width: 400px) {
+    // font-size: 42%;
+  }
 }
 
 body {
@@ -35,6 +39,7 @@ body {
 
 a {
   text-decoration: none;
+  color: varr.$text_color;
 }
 
 li {
@@ -43,32 +48,8 @@ li {
 
 i {
   font-size: 2.5rem;
-  border-radius: 7px;
-  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.4rem;
-  color: varr.$main__backg;
-  font-weight: 100;
 
   cursor: pointer;
-  transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -ms-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
-}
-
-i:hover,
-i:active {
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
 }

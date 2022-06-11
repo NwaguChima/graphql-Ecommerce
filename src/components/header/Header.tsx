@@ -9,18 +9,28 @@ export const Header: React.FC<HeaderProps> = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
-        <a href="/products" className={styles.header__nav__logo}>
-          <Logo />
-        </a>
         <div className={styles.header__nav__links}>
-          <a href="/shop">Shop</a>
-          <a href="/learn">Learn</a>
+          <a href="/products" className={styles.header__nav__links__logo}>
+            <Logo />
+          </a>
+          <div className={styles.header__nav__links__items}>
+            <a href="/shop" className={styles.focus}>
+              Shop
+            </a>
+            <a href="/learn" className={styles.focus}>
+              Learn
+            </a>
+          </div>
         </div>
         <div className={styles.header__nav__profile}>
-          <a href="/account">Account</a>
-          <a href="/cart">
-            <AiOutlineShoppingCart />
-            <span>0</span>
+          <a href="/account" className={styles.focus}>
+            Account
+          </a>
+          <a href="/cart" className={styles.header__nav__profile__cart}>
+            <i>
+              <AiOutlineShoppingCart />
+            </i>
+            <span>4</span>
           </a>
         </div>
       </nav>
