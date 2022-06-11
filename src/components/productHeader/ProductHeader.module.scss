@@ -1,0 +1,42 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.product_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8rem 8rem 5rem 8rem;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h1 {
+      font-weight: 200;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 200;
+      line-height: 1.5;
+    }
+  }
+
+  &__filter {
+    width: 25rem;
+    overflow: hidden;
+
+    select {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid varr.$product__backg;
+
+      border-radius: varr.$border_radius_main;
+      -webkit-border-radius: varr.$border_radius_main;
+      -moz-border-radius: varr.$border_radius_main;
+      -ms-border-radius: varr.$border_radius_main;
+      -o-border-radius: varr.$border_radius_main;
+    }
+  }
+}

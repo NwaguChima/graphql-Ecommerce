@@ -7,12 +7,12 @@ export const ProductHeader: React.FC<ProductHeaderProps> = () => {
   const [filter, setFilter] = useState("");
 
   return (
-    <>
-      <div className={styles.product_head}>
+    <div className={styles.product_head}>
+      <div className={styles.product_head__text}>
         <h1>All Products</h1>
         <p>A 360 look at Lumin</p>
       </div>
-      <div className={styles.product_filter}>
+      <div className={styles.product_head__filter}>
         <select
           name="filter"
           id="filter"
@@ -23,6 +23,6 @@ export const ProductHeader: React.FC<ProductHeaderProps> = () => {
           <option value="camera">Camera</option>
         </select>
       </div>
-    </>
+    </div>
   );
 };
