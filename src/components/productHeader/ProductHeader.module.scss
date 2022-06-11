@@ -4,7 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 8rem 8rem 5rem 8rem;
+  margin: 7rem 7rem 4rem 7rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 
   &__text {
     display: flex;
