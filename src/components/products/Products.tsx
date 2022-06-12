@@ -3,7 +3,7 @@ import styles from "./Products.module.scss";
 
 interface ProductsProps {}
 
-export const Products: React.FC<ProductsProps> = () => {
+const Products: React.FC<ProductsProps> = () => {
   return (
     <main className={styles.main}>
       <div className={styles.main__container}>
@@ -12,3 +12,5 @@ export const Products: React.FC<ProductsProps> = () => {
     </main>
   );
 };
+
+export default Products;

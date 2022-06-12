@@ -14,3 +14,5 @@ export const NotFound: React.FC<NotFoundProps> = () => {
     </div>
   );
 };
+
+export default NotFound;

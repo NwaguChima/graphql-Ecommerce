@@ -3,7 +3,7 @@ import styles from "./ProductHeader.module.scss";
 
 interface ProductHeaderProps {}
 
-export const ProductHeader: React.FC<ProductHeaderProps> = () => {
+const ProductHeader: React.FC<ProductHeaderProps> = () => {
   const [filter, setFilter] = useState("");
 
   return (
@@ -26,3 +26,5 @@ export const ProductHeader: React.FC<ProductHeaderProps> = () => {
     </div>
   );
 };
+
+export default ProductHeader;

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { ProductHeader } from "../components/productHeader/ProductHeader";
-import { Products } from "../components/products/Products";
+import { useEffect } from "react";
+import ProductHeader from "../components/productHeader/ProductHeader";
+import Products from "../components/products/Products";
 
 interface ProductProps {}
 
-export const Product: React.FC<ProductProps> = () => {
+const Product: React.FC<ProductProps> = () => {
   useEffect(() => {
     document.title = "Products";
   }, []);
@@ -16,3 +16,5 @@ export const Product: React.FC<ProductProps> = () => {
     </>
   );
 };
+
+export default Product;
