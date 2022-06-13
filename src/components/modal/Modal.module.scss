@@ -1,0 +1,87 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    // background-color: #332b00c2;
+    background-color: varr.$modal__backg;
+  }
+
+  &__box {
+    position: relative;
+    background-color: rgb(180, 178, 178);
+    z-index: 100;
+    max-height: 90vh;
+    width: 50rem;
+    overflow: scroll;
+    border-radius: varr.$border_radius_main;
+    -webkit-border-radius: varr.$border_radius_main;
+    -moz-border-radius: varr.$border_radius_main;
+    -ms-border-radius: varr.$border_radius_main;
+    -o-border-radius: varr.$border_radius_main;
+
+    @media screen and (max-width: 400px) {
+      width: 40rem;
+    }
+
+    h3 {
+      background-color: varr.$main__backg;
+      padding: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+.moveIn {
+  animation-name: main;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  @keyframes main {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+}
+
+.moveOut {
+  animation-name: side;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  @keyframes side {
+    0% {
+      top: 0%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+}
+
+.error {
+  min-width: 40rem;
+  min-height: 10rem;
+  background-color: whitesmoke;
+  color: varr.$main__backg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

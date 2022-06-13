@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../assets/Logo";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import GlobalContext from "../../context/globalContext";
 import styles from "./Header.module.scss";
 
 interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = () => {
+  const { setShowModal } = useContext(GlobalContext)!;
+
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
@@ -26,12 +29,15 @@ export const Header: React.FC<HeaderProps> = () => {
           <a href="/account" className={styles.focus}>
             Account
           </a>
-          <a href="/cart" className={styles.header__nav__profile__cart}>
+          <div
+            className={styles.header__nav__profile__cart}
+            onClick={() => setShowModal(true)}
+          >
             <i>
               <AiOutlineShoppingCart />
             </i>
             <span>4</span>
-          </a>
+          </div>
         </div>
       </nav>
     </header>
