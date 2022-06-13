@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Spinner from "../spinner/Spinner";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../queries/productQueries";
@@ -6,6 +6,7 @@ import GET_CURRENCIES from "../../queries/currencyQueries";
 import styles from "./Products.module.scss";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { ProductType } from "../../utils/types";
+import { getCountry } from "../../utils/helper";
 
 interface ProductsProps {}
 
@@ -19,7 +20,27 @@ const Products: React.FC<ProductsProps> = () => {
     },
   });
 
-  console.log("data", data, loading, error);
+  const country = async () => {
+    const countryData = await getCountry(9.0386733, 7.4927962);
+    console.log("country", countryData);
+  };
+
+  useEffect(() => {
+    // country();
+  }, []);
+
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(async (position) => {
+  //     console.log("position", position.coords);
+  //     const country = await getCountry(
+  //       position.coords.latitude,
+  //       position.coords.longitude
+  //     );
+  //   });
+  // }
+
+  //   console.log("country", country);
+  // });
 
   return (
     <main className={styles.main}>
@@ -32,12 +53,7 @@ const Products: React.FC<ProductsProps> = () => {
       ) : (
         <div className={styles.main__container}>
           {data.products.map((product: ProductType) => (
-            <ProductCard
-              key={product.id}
-              imgUrl={product.image_url}
-              productName={product.title}
-              productPrice={product.price}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       )}

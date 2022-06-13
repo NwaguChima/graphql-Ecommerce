@@ -1,25 +1,20 @@
 import React from "react";
+import { ProductType } from "../../utils/types";
 import Button from "../button/Button";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {
-  imgUrl: string;
-  productName: string;
-  productPrice: number;
+  product: ProductType;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
-  imgUrl,
-  productName,
-  productPrice,
-}) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className={styles.card}>
-      <img src={imgUrl} alt="product badge" />
+      <img src={product.image_url} alt="product badge" />
       <div className={styles.card__info}>
-        <h3>{productName}</h3>
+        <h3>{product.title}</h3>
         <p>
-          From <span>{`${"$"} ${productPrice}`}</span>
+          From <span>{`${"$"} ${product.price}`}</span>
         </p>
         <Button action="Add to Cart" />
       </div>

@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Shop from "./pages/Shop";
 import Learn from "./pages/Learn";
 import { GlobalContextProvider } from "./context/globalContext";
+import Modal from "./components/modal/Modal";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -41,6 +42,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
+          <Modal />
         </ApolloProvider>
       </GlobalContextProvider>
     </>

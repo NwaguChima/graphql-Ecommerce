@@ -1,12 +1,15 @@
 import React, { createContext, useState } from "react";
+import { ProductType } from "../utils/types";
 
 type GlobalContextProviderProps = {
   children: React.ReactNode;
 };
 
 type GlobalContextType = {
-  products: any[];
-  setProducts: React.Dispatch<React.SetStateAction<any[]>>;
+  products: ProductType[];
+  showModal: boolean;
+  setProducts: React.Dispatch<React.SetStateAction<ProductType[]>>;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -15,12 +18,15 @@ export const GlobalContextProvider = ({
   children,
 }: GlobalContextProviderProps) => {
   const [products, setProducts] = useState<any[]>([]);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <GlobalContext.Provider
       value={{
         products,
+        showModal,
         setProducts,
+        setShowModal,
       }}
     >
       {children}
