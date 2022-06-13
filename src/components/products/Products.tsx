@@ -8,10 +8,16 @@ import styles from "./Products.module.scss";
 interface ProductsProps {}
 
 const Products: React.FC<ProductsProps> = () => {
-  const { loading, error, data } = useQuery(GET_CURRENCIES);
-  // const { loading, error, data } = useQuery(GET_PRODUCTS);
+  // const { loading, error, data } = useQuery(GET_CURRENCIES);
 
-  console.log("data", data);
+  // query to get products
+  const { loading, error, data } = useQuery(GET_PRODUCTS, {
+    variables: {
+      currency: "NGN",
+    },
+  });
+
+  console.log("data", data, loading, error);
   return (
     <main className={styles.main}>
       <div className={styles.main__container}>
