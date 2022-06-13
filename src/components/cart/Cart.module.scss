@@ -1,0 +1,12 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.cart {
+  //   position: fixed;
+  //   right: 0;
+  //   top: 0;
+  //   bottom: 0;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}

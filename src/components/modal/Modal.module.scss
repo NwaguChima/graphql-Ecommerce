@@ -17,32 +17,25 @@
     left: 0;
     right: 0;
     z-index: 100;
-    // background-color: #332b00c2;
     background-color: varr.$modal__backg;
   }
 
   &__box {
-    position: relative;
+    position: fixed;
     background-color: rgb(180, 178, 178);
     z-index: 100;
-    max-height: 90vh;
-    width: 50rem;
+    height: 100vh;
+    width: 45rem;
     overflow: scroll;
-    border-radius: varr.$border_radius_main;
-    -webkit-border-radius: varr.$border_radius_main;
-    -moz-border-radius: varr.$border_radius_main;
-    -ms-border-radius: varr.$border_radius_main;
-    -o-border-radius: varr.$border_radius_main;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    @media screen and (max-width: 400px) {
-      width: 40rem;
-    }
-
-    h3 {
-      background-color: varr.$main__backg;
-      padding: 1rem;
-      text-align: center;
-    }
+    // @media screen and (max-width: 400px) {
+    //   width: 40rem;
+    // }
   }
 }
 
