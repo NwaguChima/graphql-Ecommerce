@@ -1,0 +1,24 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.button {
+  padding: 1.3rem 5rem;
+  border: none;
+  color: varr.$header__backg;
+  background: varr.$btn__backg;
+
+  &:hover,
+  &:active {
+    background: varr.$btn__hover;
+  }
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}

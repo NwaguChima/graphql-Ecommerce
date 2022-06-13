@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../queries/productQueries";
 import GET_CURRENCIES from "../../queries/currencyQueries";
 import styles from "./Products.module.scss";
+import { ProductCard } from "../ProductCard/ProductCard";
 
 interface ProductsProps {}
 
@@ -21,7 +22,7 @@ const Products: React.FC<ProductsProps> = () => {
   return (
     <main className={styles.main}>
       <div className={styles.main__container}>
-        <p>Product</p>
+        <ProductCard />
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../button/Button";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {}
@@ -15,7 +16,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({}) => {
         <p>
           From <span>$48.00</span>
         </p>
-        <Button />
+        <Button action="Add to Cart" />
       </div>
     </div>
   );
