@@ -23,6 +23,11 @@ const Products: React.FC<ProductsProps> = () => {
     <main className={styles.main}>
       <div className={styles.main__container}>
         <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </div>
     </main>
   );
