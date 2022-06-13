@@ -3,16 +3,21 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 7rem;
+  gap: 8rem;
   justify-content: center;
   align-items: center;
   background-color: #d7dad8;
   padding: 2.5rem 1.5rem;
   border-top: 3px solid transparent;
+  min-height: 35rem;
+
+  @media screen and (min-width: 1100px) {
+    min-width: 30rem;
+  }
 
   img {
     width: 20rem;
-    height: auto;
+    max-height: 15rem;
   }
 
   &__info {

@@ -5,6 +5,7 @@ import { GET_PRODUCTS } from "../../queries/productQueries";
 import GET_CURRENCIES from "../../queries/currencyQueries";
 import styles from "./Products.module.scss";
 import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductType } from "../../utils/types";
 
 interface ProductsProps {}
 
@@ -19,16 +20,27 @@ const Products: React.FC<ProductsProps> = () => {
   });
 
   console.log("data", data, loading, error);
+
   return (
     <main className={styles.main}>
-      <div className={styles.main__container}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      {loading ? (
+        <div style={{ paddingTop: "10rem" }}>
+          <Spinner />
+        </div>
+      ) : error ? (
+        <p>Error: {error.message}</p>
+      ) : (
+        <div className={styles.main__container}>
+          {data.products.map((product: ProductType) => (
+            <ProductCard
+              key={product.id}
+              imgUrl={product.image_url}
+              productName={product.title}
+              productPrice={product.price}
+            />
+          ))}
+        </div>
+      )}
     </main>
   );
 };

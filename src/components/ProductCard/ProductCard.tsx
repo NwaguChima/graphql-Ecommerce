@@ -2,19 +2,24 @@ import React from "react";
 import Button from "../button/Button";
 import styles from "./ProductCard.module.scss";
 
-interface ProductCardProps {}
+interface ProductCardProps {
+  imgUrl: string;
+  productName: string;
+  productPrice: number;
+}
 
-export const ProductCard: React.FC<ProductCardProps> = () => {
+export const ProductCard: React.FC<ProductCardProps> = ({
+  imgUrl,
+  productName,
+  productPrice,
+}) => {
   return (
     <div className={styles.card}>
-      <img
-        src="https://d1b929y2mmls08.cloudfront.net/luminskin/img/new-landing-page/deflator.png"
-        alt="product badge"
-      />
+      <img src={imgUrl} alt="product badge" />
       <div className={styles.card__info}>
-        <h3>Premium-Grade Moisturizing Balm</h3>
+        <h3>{productName}</h3>
         <p>
-          From <span>$48.00</span>
+          From <span>{`${"$"} ${productPrice}`}</span>
         </p>
         <Button action="Add to Cart" />
       </div>
