@@ -4,10 +4,16 @@ import { HiOutlineChevronRight, HiOutlineChevronUp } from "react-icons/hi";
 import Button from "../button/Button";
 import styles from "./Cart.module.scss";
 import Item from "../item/Item";
+import { useQuery } from "@apollo/client";
+import GET_CURRENCIES from "../../queries/currencyQueries";
 
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
+  const { loading, error, data } = useQuery(GET_CURRENCIES);
+
+  // console.log("data", data.currencies);
+
   const { setShowModal, setClose, cart } = useContext(GlobalContext)!;
 
   const getTotal = () => {
@@ -42,9 +48,15 @@ const Cart: React.FC<CartProps> = () => {
             <HiOutlineChevronRight />
           </button>
           <div className={styles.cart__header__click__currency}>
-            <label htmlFor="country">USD</label>
             <select id="country">
-              <option value="usd"></option>
+              <option value="USD">{"USD"}</option>
+              {!loading &&
+                !error &&
+                data?.currency.map((currency: any) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
             </select>
           </div>
         </div>
