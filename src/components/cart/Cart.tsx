@@ -10,8 +10,14 @@ interface CartProps {}
 const Cart: React.FC<CartProps> = () => {
   const { setShowModal, setClose, cart } = useContext(GlobalContext)!;
 
-  // geting the sum total of all items in the cart
-  // const total = cart.reduce((acc: any, item: any) => acc + item.total_price, 0);
+  // geting the sum total of all items total price in the cart
+  const getTotal = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.total_price!;
+    });
+    return total;
+  };
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -68,7 +74,7 @@ const Cart: React.FC<CartProps> = () => {
           <div className={styles.cart__footer__body__total}>
             <h4>SUBTOTAL</h4>
             <p>
-              NIG <span>{}</span>
+              NIG <span>{getTotal()}</span>
             </p>
           </div>
           <Button action="PRODCEED TO CHECKOUT" />
