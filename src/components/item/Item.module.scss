@@ -1,0 +1,41 @@
+@use "../../globalStyles/variables.scss" as varr;
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem;
+  background: varr.$main__backg;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      font-weight: 300;
+    }
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  &__delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 4rem;
+      height: 3rem;
+    }
+  }
+
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
