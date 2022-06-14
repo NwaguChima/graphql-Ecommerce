@@ -15,6 +15,7 @@ const Cart: React.FC<CartProps> = () => {
         <h2>My Shopping Cart</h2>
         <div className={styles.cart__header__click}>
           <button
+            className={styles.modal_btn}
             onClick={(e) => {
               e.preventDefault();
               setShowModal(false);
@@ -33,7 +34,7 @@ const Cart: React.FC<CartProps> = () => {
       <div className={styles.cart__footer}>
         <div className={styles.cart__footer__head}>
           <p>APPLY A DISCOUNT CODE</p>
-          <button>
+          <button className={styles.modal_btn}>
             <HiOutlineChevronUp />
           </button>
         </div>
