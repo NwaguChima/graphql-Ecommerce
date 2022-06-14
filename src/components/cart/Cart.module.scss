@@ -7,7 +7,7 @@
   width: 100%;
   flex-direction: column;
   position: relative;
-  //   background-color: red;
+  font-weight: 400;
 
   &__header {
     display: flex;
@@ -40,27 +40,32 @@
   }
 
   &__footer {
-    background: aqua;
     position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
     padding: 2rem;
 
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 
     &__head {
       display: flex;
       justify-content: space-between;
+      padding-block: 1.2rem;
+      border-block: 1px solid varr.$btn__backg;
     }
 
     &__body {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+
+      &__total {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }
