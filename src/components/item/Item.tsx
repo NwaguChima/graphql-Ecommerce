@@ -57,7 +57,7 @@ const Item: React.FC<ItemProps> = ({ product }) => {
           <IoCloseOutline />
         </i>
       </div>
-      <p>Oily / Two Months</p>
+      <p>Two Months</p>
       <div className={styles.item__delivery}>
         <p>Two months supply shipped every two months</p>
         <img src={product.image_url} alt="item badge" />
