@@ -4,7 +4,7 @@ interface LearnProps {}
 
 const Learn: React.FC<LearnProps> = () => {
   useEffect(() => {
-    document.title = "Products";
+    document.title = "Learn";
   }, []);
 
   return (

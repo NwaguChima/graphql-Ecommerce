@@ -6,7 +6,7 @@ interface ProductProps {}
 
 const Product: React.FC<ProductProps> = () => {
   useEffect(() => {
-    document.title = "Products";
+    document.title = "Product";
   }, []);
 
   return (

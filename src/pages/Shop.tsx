@@ -4,7 +4,7 @@ interface ShopProps {}
 
 const Shop: React.FC<ShopProps> = () => {
   useEffect(() => {
-    document.title = "Products";
+    document.title = "Shop";
   }, []);
 
   return (
