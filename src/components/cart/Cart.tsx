@@ -12,9 +12,8 @@ interface CartProps {}
 const Cart: React.FC<CartProps> = () => {
   const { loading, error, data } = useQuery(GET_CURRENCIES);
 
-  // console.log("data", data.currencies);
-
-  const { setShowModal, setClose, cart } = useContext(GlobalContext)!;
+  const { setShowModal, setClose, cart, setCurrency } =
+    useContext(GlobalContext)!;
 
   const getTotal = () => {
     let total = 0;
@@ -48,11 +47,10 @@ const Cart: React.FC<CartProps> = () => {
             <HiOutlineChevronRight />
           </button>
           <div className={styles.cart__header__click__currency}>
-            <select id="country">
-              <option value="USD">{"USD"}</option>
+            <select id="country" onChange={(e) => setCurrency(e.target.value)}>
               {!loading &&
                 !error &&
-                data?.currency.map((currency: any) => (
+                data?.currency.map((currency: string) => (
                   <option key={currency} value={currency}>
                     {currency}
                   </option>

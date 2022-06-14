@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import GlobalContext from "../../context/globalContext";
 import { ProductType } from "../../utils/types";
+import getSymbolFromCurrency from "currency-symbol-map";
 import Button from "../button/Button";
 import styles from "./ProductCard.module.scss";
 
@@ -9,8 +10,15 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { setShowModal, setClose, cart, setCart, setTotalItems, totalItems } =
-    useContext(GlobalContext)!;
+  const {
+    setShowModal,
+    setClose,
+    cart,
+    setCart,
+    setTotalItems,
+    totalItems,
+    currency,
+  } = useContext(GlobalContext)!;
 
   const handleAddToCart = () => {
     const item = cart.find((item) => item.id === product.id);
@@ -36,7 +44,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={styles.card__info}>
         <h3>{product.title}</h3>
         <p>
-          From <span>{`${"$"} ${product.price}`}</span>
+          From{" "}
+          <span>{`${
+            getSymbolFromCurrency(currency)
+              ? getSymbolFromCurrency(currency)
+              : currency
+          } ${product.price}`}</span>
         </p>
         <div onClick={handleAddToCart}>
           <Button action="Add to Cart" />
