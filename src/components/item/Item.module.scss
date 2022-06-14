@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 0.2rem;
   padding: 1rem;
-  background: varr.$main__backg;
+  background: rgba(235, 235, 235, 0.438);
 
   &__head {
     display: flex;
@@ -19,7 +19,7 @@
 
   p {
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &__delivery {
@@ -30,6 +30,31 @@
     img {
       width: 4rem;
       height: 3rem;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 7.5rem;
+
+    button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: inherit;
+      height: 2.5rem;
+      width: 8rem;
+      border: none;
+
+      i {
+        margin-top: 0.5rem;
+      }
+
+      span {
+        color: rgb(255, 145, 0);
+        font-size: 1.8rem;
+      }
     }
   }
 
