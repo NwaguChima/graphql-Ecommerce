@@ -9,25 +9,27 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { setShowModal, setClose, cart, setCart } = useContext(GlobalContext)!;
+  const { setShowModal, setClose, cart, setCart, setTotalItems, totalItems } =
+    useContext(GlobalContext)!;
 
   const handleAddToCart = () => {
     const item = cart.find((item) => item.id === product.id);
     if (item) {
       item.total_price = item.total_price! + product.price;
       item.quantity = item.quantity! + 1;
+      setTotalItems(totalItems + 1);
     } else {
       setCart([
         ...cart,
         { ...product, total_price: product.price, quantity: 1 },
       ]);
+      setTotalItems(totalItems + 1);
     }
 
     setShowModal(true);
     setClose(false);
   };
 
-  console.log("cart", cart);
   return (
     <div className={styles.card}>
       <img src={product.image_url} alt="product badge" />

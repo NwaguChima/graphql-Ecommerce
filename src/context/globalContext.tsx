@@ -9,11 +9,13 @@ type GlobalContextType = {
   products: ProductType[];
   showModal: boolean;
   close: boolean;
-  cart: ProductType[] | [];
+  cart: ProductType[];
+  totalItems: number;
   setProducts: React.Dispatch<React.SetStateAction<ProductType[]>>;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   setClose: React.Dispatch<React.SetStateAction<boolean>>;
-  setCart: React.Dispatch<React.SetStateAction<ProductType[] | []>>;
+  setCart: React.Dispatch<React.SetStateAction<ProductType[]>>;
+  setTotalItems: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -24,7 +26,8 @@ export const GlobalContextProvider = ({
   const [products, setProducts] = useState<ProductType[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [close, setClose] = useState(false);
-  const [cart, setCart] = useState<ProductType[] | []>([]);
+  const [cart, setCart] = useState<ProductType[]>([]);
+  const [totalItems, setTotalItems] = useState(0);
 
   return (
     <GlobalContext.Provider
@@ -33,10 +36,12 @@ export const GlobalContextProvider = ({
         showModal,
         close,
         cart,
+        totalItems,
         setProducts,
         setShowModal,
         setClose,
         setCart,
+        setTotalItems,
       }}
     >
       {children}

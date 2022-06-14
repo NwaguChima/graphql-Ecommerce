@@ -11,10 +11,17 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ product }) => {
-  const { cart, setCart } = useContext(GlobalContext)!;
+  const { cart, setCart, setTotalItems } = useContext(GlobalContext)!;
 
   const handleRemove = () => {
-    setCart(cart.filter((item) => item.id !== product.id));
+    let newCart = cart.filter((item) => item.id !== product.id);
+    setCart(newCart);
+
+    const totalItems = newCart.reduce((acc, item) => {
+      return acc + item.quantity!;
+    }, 0);
+
+    setTotalItems(totalItems);
   };
 
   return (
