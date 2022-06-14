@@ -10,7 +10,6 @@ interface CartProps {}
 const Cart: React.FC<CartProps> = () => {
   const { setShowModal, setClose, cart } = useContext(GlobalContext)!;
 
-  // geting the sum total of all items total price in the cart
   const getTotal = () => {
     let total = 0;
     cart.forEach((item) => {

@@ -11,7 +11,8 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ product }) => {
-  const { cart, setCart, setTotalItems } = useContext(GlobalContext)!;
+  const { cart, setCart, setTotalItems, totalItems } =
+    useContext(GlobalContext)!;
 
   const handleRemove = () => {
     let newCart = cart.filter((item) => item.id !== product.id);
@@ -22,6 +23,30 @@ const Item: React.FC<ItemProps> = ({ product }) => {
     }, 0);
 
     setTotalItems(totalItems);
+  };
+
+  const handleQuantity = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
+    task: string
+  ) => {
+    e.preventDefault();
+
+    let newCart = cart.map((item) => {
+      if (item.id === product.id) {
+        if (task === "add") {
+          item.quantity! = item.quantity! + 1;
+          item.total_price! = item.total_price! + product.price;
+          setTotalItems(totalItems + 1);
+        }
+        if (task === "remove" && item.quantity! > 1) {
+          item.quantity = item.quantity! - 1;
+          item.total_price = item.total_price! - product.price;
+          setTotalItems(totalItems - 1);
+        }
+      }
+      return item;
+    });
+    setCart(newCart);
   };
 
   return (
@@ -39,11 +64,11 @@ const Item: React.FC<ItemProps> = ({ product }) => {
       </div>
       <div className={styles.item__details}>
         <button>
-          <i>
+          <i onClick={(e) => handleQuantity(e, "remove")}>
             <BiMinus />
           </i>
           <span>{product.total_price! / product.price}</span>
-          <i>
+          <i onClick={(e) => handleQuantity(e, "add")}>
             <BsPlus />
           </i>
         </button>
