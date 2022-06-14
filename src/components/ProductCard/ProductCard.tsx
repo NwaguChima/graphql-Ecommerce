@@ -9,13 +9,16 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { setShowModal, setClose } = useContext(GlobalContext)!;
+  const { setShowModal, setClose, cart, setCart } = useContext(GlobalContext)!;
 
   const handleAddToCart = () => {
+    setCart([...cart, { ...product, total_price: product.price }]);
+
     setShowModal(true);
     setClose(false);
   };
 
+  console.log("cart", cart);
   return (
     <div className={styles.card}>
       <img src={product.image_url} alt="product badge" />

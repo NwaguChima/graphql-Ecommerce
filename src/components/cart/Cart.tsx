@@ -8,7 +8,7 @@ import Item from "../item/Item";
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { setShowModal, setClose } = useContext(GlobalContext)!;
+  const { setShowModal, setClose, cart } = useContext(GlobalContext)!;
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -42,8 +42,17 @@ const Cart: React.FC<CartProps> = () => {
         </div>
       </div>
       <div className={styles.cart__body}>
-        <Item />
-        <Item />
+        {cart.length > 0 ? (
+          cart.map((item) => <Item key={item.id} product={item} />)
+        ) : (
+          <div className={styles.cart__body__empty}>
+            <h3>Your cart is empty</h3>
+            <p>
+              You can add items to your cart by clicking on the "Add to Cart"
+              button on the product page.
+            </p>
+          </div>
+        )}
       </div>
       <div className={styles.cart__footer}>
         <div className={styles.cart__footer__head}>
