@@ -6,13 +6,14 @@ import styles from "./Cart.module.scss";
 import Item from "../item/Item";
 import { useQuery } from "@apollo/client";
 import GET_CURRENCIES from "../../queries/currencyQueries";
+import getSymbolFromCurrency from "currency-symbol-map";
 
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
   const { loading, error, data } = useQuery(GET_CURRENCIES);
 
-  const { setShowModal, setClose, cart, setCurrency } =
+  const { setShowModal, setClose, cart, setCurrency, currency } =
     useContext(GlobalContext)!;
 
   const getTotal = () => {
@@ -47,7 +48,11 @@ const Cart: React.FC<CartProps> = () => {
             <HiOutlineChevronRight />
           </button>
           <div className={styles.cart__header__click__currency}>
-            <select id="country" onChange={(e) => setCurrency(e.target.value)}>
+            <select
+              id="country"
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+            >
               {!loading &&
                 !error &&
                 data?.currency.map((currency: string) => (
@@ -83,7 +88,12 @@ const Cart: React.FC<CartProps> = () => {
           <div className={styles.cart__footer__body__total}>
             <h4>SUBTOTAL</h4>
             <p>
-              NIG <span>{getTotal()}</span>
+              {`${
+                getSymbolFromCurrency(currency)
+                  ? getSymbolFromCurrency(currency)
+                  : currency
+              }`}{" "}
+              <span>{getTotal()}</span>
             </p>
           </div>
           <Button action="PRODCEED TO CHECKOUT" />

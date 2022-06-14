@@ -5,13 +5,14 @@ import { BiMinus } from "react-icons/bi";
 import styles from "./Item.module.scss";
 import { ProductType } from "../../utils/types";
 import GlobalContext from "../../context/globalContext";
+import getSymbolFromCurrency from "currency-symbol-map";
 
 interface ItemProps {
   product: ProductType;
 }
 
 const Item: React.FC<ItemProps> = ({ product }) => {
-  const { cart, setCart, setTotalItems, totalItems } =
+  const { cart, setCart, setTotalItems, totalItems, currency } =
     useContext(GlobalContext)!;
 
   const handleRemove = () => {
@@ -72,7 +73,11 @@ const Item: React.FC<ItemProps> = ({ product }) => {
             <BsPlus />
           </i>
         </button>
-        <span>$ {product.total_price}</span>
+        <span>{`${
+          getSymbolFromCurrency(currency)
+            ? getSymbolFromCurrency(currency)
+            : currency
+        } ${product.total_price}`}</span>
       </div>
     </div>
   );
