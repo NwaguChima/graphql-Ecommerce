@@ -38,6 +38,18 @@
 
         cursor: pointer;
       }
+
+      &__currency {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        select {
+          border: none;
+          background: inherit;
+        }
+      }
     }
   }
 }
