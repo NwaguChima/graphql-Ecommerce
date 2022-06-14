@@ -3,6 +3,7 @@ import GlobalContext from "../../context/globalContext";
 import { HiOutlineChevronRight, HiOutlineChevronUp } from "react-icons/hi";
 import Button from "../button/Button";
 import styles from "./Cart.module.scss";
+import Item from "../item/Item";
 
 interface CartProps {}
 
@@ -30,6 +31,9 @@ const Cart: React.FC<CartProps> = () => {
             </select>
           </div>
         </div>
+      </div>
+      <div className={styles.cart__body}>
+        <Item />
       </div>
       <div className={styles.cart__footer}>
         <div className={styles.cart__footer__head}>

@@ -20,6 +20,8 @@ const Products: React.FC<ProductsProps> = () => {
     },
   });
 
+  console.log(data);
+
   const country = async () => {
     const countryData = await getCountry(9.0386733, 7.4927962);
     console.log("country", countryData);
