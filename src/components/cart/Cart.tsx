@@ -8,7 +8,17 @@ import Item from "../item/Item";
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { setShowModal } = useContext(GlobalContext)!;
+  const { setShowModal, setClose } = useContext(GlobalContext)!;
+
+  const handleClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+
+    setClose(true);
+
+    setTimeout(() => {
+      setShowModal(false);
+    }, 500);
+  };
 
   return (
     <div className={styles.cart}>
@@ -18,8 +28,7 @@ const Cart: React.FC<CartProps> = () => {
           <button
             className={styles.modal_btn}
             onClick={(e) => {
-              e.preventDefault();
-              setShowModal(false);
+              handleClose(e);
             }}
           >
             <HiOutlineChevronRight />
@@ -33,6 +42,7 @@ const Cart: React.FC<CartProps> = () => {
         </div>
       </div>
       <div className={styles.cart__body}>
+        <Item />
         <Item />
       </div>
       <div className={styles.cart__footer}>

@@ -8,8 +8,10 @@ type GlobalContextProviderProps = {
 type GlobalContextType = {
   products: ProductType[];
   showModal: boolean;
+  close: boolean;
   setProducts: React.Dispatch<React.SetStateAction<ProductType[]>>;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setClose: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -19,14 +21,17 @@ export const GlobalContextProvider = ({
 }: GlobalContextProviderProps) => {
   const [products, setProducts] = useState<any[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [close, setClose] = useState(false);
 
   return (
     <GlobalContext.Provider
       value={{
         products,
         showModal,
+        close,
         setProducts,
         setShowModal,
+        setClose,
       }}
     >
       {children}

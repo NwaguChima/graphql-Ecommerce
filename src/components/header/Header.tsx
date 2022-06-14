@@ -7,7 +7,12 @@ import styles from "./Header.module.scss";
 interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = () => {
-  const { setShowModal } = useContext(GlobalContext)!;
+  const { setShowModal, setClose } = useContext(GlobalContext)!;
+
+  const handleClick = () => {
+    setShowModal(true);
+    setClose(false);
+  };
 
   return (
     <header className={styles.header}>
@@ -31,7 +36,7 @@ export const Header: React.FC<HeaderProps> = () => {
           </a>
           <div
             className={styles.header__nav__profile__cart}
-            onClick={() => setShowModal(true)}
+            onClick={handleClick}
           >
             <i>
               <AiOutlineShoppingCart />

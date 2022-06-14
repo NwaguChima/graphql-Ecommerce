@@ -9,10 +9,11 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { setShowModal } = useContext(GlobalContext)!;
+  const { setShowModal, setClose } = useContext(GlobalContext)!;
 
   const handleAddToCart = () => {
     setShowModal(true);
+    setClose(false);
   };
 
   return (

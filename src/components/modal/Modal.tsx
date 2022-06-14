@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom";
 import Cart from "../cart/Cart";
 import GlobalContext from "../../context/globalContext";
@@ -9,10 +9,15 @@ interface ModalProps {}
 export const Modal: React.FC<ModalProps> = () => {
   //   const Cart = lazy(() => import("../cart/Cart"));
 
-  const { showModal, setShowModal } = useContext(GlobalContext)!;
+  const { showModal, setShowModal, close, setClose } =
+    useContext(GlobalContext)!;
 
   const handleClose = () => {
-    setShowModal(false);
+    setClose(true);
+
+    setTimeout(() => {
+      setShowModal(false);
+    }, 500);
   };
 
   if (showModal) {
@@ -20,8 +25,8 @@ export const Modal: React.FC<ModalProps> = () => {
       <div className={styles.modal}>
         <div className={styles.modal__container} onClick={handleClose}></div>
         <aside
-          className={`${styles.modal__box} ${
-            showModal ? styles.moveIn : styles.moveOut
+          className={`${styles.modal__box} ${showModal && styles.moveIn} ${
+            close && styles.moveOut
           }`}
         >
           <Cart />
