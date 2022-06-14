@@ -9,7 +9,7 @@ interface ProductCardProps {
   product: ProductType;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const {
     setShowModal,
     setClose,
@@ -58,3 +58,5 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     </div>
   );
 };
+
+export default ProductCard;

@@ -3,7 +3,7 @@ import Spinner from "../spinner/Spinner";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../queries/productQueries";
 import styles from "./Products.module.scss";
-import { ProductCard } from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import { ProductType } from "../../utils/types";
 import GlobalContext from "../../context/globalContext";
 

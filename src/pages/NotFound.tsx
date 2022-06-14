@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 interface NotFoundProps {}
 
-export const NotFound: React.FC<NotFoundProps> = () => {
+const NotFound: React.FC<NotFoundProps> = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "10rem" }}>
       <FaExclamationTriangle size="5em" />

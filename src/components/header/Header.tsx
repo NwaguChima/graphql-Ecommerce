@@ -6,7 +6,7 @@ import styles from "./Header.module.scss";
 
 interface HeaderProps {}
 
-export const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = () => {
   const { setShowModal, setClose, totalItems } = useContext(GlobalContext)!;
 
   const handleClick = () => {

@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense, useState } from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import Cart from "../cart/Cart";
 import GlobalContext from "../../context/globalContext";
@@ -6,9 +6,7 @@ import styles from "./Modal.module.scss";
 
 interface ModalProps {}
 
-export const Modal: React.FC<ModalProps> = () => {
-  //   const Cart = lazy(() => import("../cart/Cart"));
-
+const Modal: React.FC<ModalProps> = () => {
   const { showModal, setShowModal, close, setClose } =
     useContext(GlobalContext)!;
 
