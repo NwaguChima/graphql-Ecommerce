@@ -11,6 +11,7 @@ const Header = lazy(() => import("./components/header/Header"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Learn = lazy(() => import("./pages/Learn"));
+const Home = lazy(() => import("./pages/Home"));
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -47,6 +48,7 @@ function App() {
         >
           <Router>
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/products" element={<Product />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/learn" element={<Learn />} />
