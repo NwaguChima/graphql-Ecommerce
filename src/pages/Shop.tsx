@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import Button from "../components/button/Button";
 
 interface ShopProps {}
 
@@ -8,9 +10,12 @@ const Shop: React.FC<ShopProps> = () => {
   }, []);
 
   return (
-    <h1 style={{ textAlign: "center", marginTop: "10rem" }}>
-      Welcome to our shop page
-    </h1>
+    <div style={{ textAlign: "center", marginTop: "10rem" }}>
+      <h1 style={{ marginBottom: "3rem" }}>Welcome to Our Shop</h1>
+      <Link to="/products">
+        <Button action="Back Product Page" />
+      </Link>
+    </div>
   );
 };
 
