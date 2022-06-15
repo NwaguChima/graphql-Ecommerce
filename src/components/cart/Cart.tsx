@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import GlobalContext from "../../context/globalContext";
 import { HiOutlineChevronRight, HiOutlineChevronUp } from "react-icons/hi";
 import Button from "../button/Button";
@@ -13,8 +13,15 @@ interface CartProps {}
 const Cart: React.FC<CartProps> = () => {
   const { loading, error, data } = useQuery(GET_CURRENCIES);
 
-  const { setShowModal, setClose, cart, setCurrency, currency } =
-    useContext(GlobalContext)!;
+  const {
+    setShowModal,
+    setClose,
+    cart,
+    setCart,
+    setCurrency,
+    currency,
+    products,
+  } = useContext(GlobalContext)!;
 
   const getTotal = () => {
     let total = 0;
@@ -33,6 +40,20 @@ const Cart: React.FC<CartProps> = () => {
       setShowModal(false);
     }, 500);
   };
+
+  useEffect(() => {
+    const newCart = cart.map((item) => {
+      const newItem = { ...item };
+      const newPrice = products.find((product) => product.id === item.id);
+
+      newItem.price = newPrice!.price;
+      newItem.total_price = newPrice!.price * newItem.quantity!;
+      return newItem;
+    });
+
+    setCart(newCart);
+    // eslint-disable-next-line
+  }, [products]);
 
   return (
     <div className={styles.cart}>
