@@ -20,7 +20,6 @@ const ProductHeader: React.FC<ProductHeaderProps> = () => {
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="">Filter by</option>
-          <option value="camera">Camera</option>
         </select>
       </div>
     </div>
